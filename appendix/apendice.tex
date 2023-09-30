@@ -1,0 +1,97 @@
+\chapter{Funcionamiento del programa}
+
+
+Para comenzar con el uso de los programas es necesario compilar el código. La herramienta de \textbf{Linux} que genera el ejecutable y otros archivos fuente y no fuente se conoce como \textbf{make}. Una vez hecho esto, se produce el ejecutable.
+\begin{lstlisting}
+$computeEnthalpyNIST.x$
+\end{lstlisting}
+
+El funcionamiento adecuado de \textbf{EnthalpyNIST} se muestra a continuación.
+
+\begin{lstlisting}[caption = Output de CH3OH-G4.txt en EnthalpyNIST]
+$./computeEnthalpyNIST.x  CH3OH-G4.txt$
+========================================================================
+          New calculation of molecular enthalpies of formation
+
+      Enthalpies of formation of gaseous atoms at 0 K and thermal 
+   corrections for elements in their standard state at 298 K from:
+
+            NIST-JANAF Thermochemical Tables J. Physics Chem. 
+                    Data Monograph 9, 1998, 1-1951.
+========================================================================
+Heats of formation:
+0K          -190.11 kJ mol-1
+0K          -45.41 kcal mol-1
+
+Using Nicolaides method:
+298K        -201.21 kJ mol-1
+298K        -48.06 kcal mol-1
+
+Using G4: 
+298K        -201.21 kJ mol-1
+298K        -48.06 kcal mol-1
+========================================================================
+\end{lstlisting}
+
+El código desarrollado para este programa puede ser mejorado incorporando las siguientes actualizaciones. 
+
+\subsection*{Restricciones de ejecución}
+Para evitar una ejecución del programa de manera indefinida, es oportuno incorporar diferentes mensajes de error, que permitan al usuario identificar un posible problema. Los mensajes tendrían (o tienen) que ver con los siguientes escenarios.
+\begin{itemize}
+	\item Ingresar un archivo que no contenga la información necesaria.
+	\item Cuando no es posible leer el archivo de entrada.
+	\item Si el archivo de entrada no cuenta con un formato determinado.
+\end{itemize}
+
+\subsection*{Banderas de entrada}
+ Incorporar banderas de entrada al código del programa permitirá tener distintas opciones en el cálculo de la entalpía de formación.  Las opciones son necesarias porque calcularían el valor de la entalpía de formación por distintos métodos y valores. Éstas, podrían ser mostradas al usar la bandera “-h”. Las banderas pueden ser utilizadas de la siguiente manera:
+\begin{lstlisting}
+$./computeEnthalpyNIST.x -h$
+\end{lstlisting}
+Por lo tanto, la nomeclatura del programa sería:
+\begin{lstlisting}
+$./computeEnthalpyNIST.x -flag  molecule.txt/.dat$
+\end{lstlisting}
+Dónde \textbf{molecule.txt o molecule.dat} es el archivo de entrada y \textbf{-flag} es la bandera de entrada que contiene las diferentes opciones para modificar el cálculo. Las banderas pueden ser las siguientes:
+\begin{lstlisting}
+$-t$
+\end{lstlisting}
+Utilizar el valor experimental del átomo de Carbono reportado por Tajti \textit{et al.}\cite{Tajti2004}.
+\begin{lstlisting}
+$-a$
+\end{lstlisting}
+Activar las tablas termoquímicas del Laboratorio Nacional de Argonne.
+\begin{lstlisting}
+$-s$ 
+\end{lstlisting}
+Guardar el archivo de salida. 
+\begin{lstlisting}
+$-h$ 
+\end{lstlisting}
+Muestra un menú de ayuda para el manejo del programa. 
+
+\chapter{Programas adicionales}
+
+Además del programa \textbf{EnthalpyNIST}, se crearon 2 programas que permiten determinar la entalpía de formación por distintos métodos al G4 de \textbf{Guassian09}, con diferentes valores reportados en la literatura científica \cite{Simmie2015,NIST1998,Tajti2004}. Sus usos e interfaces son semejantes a \textbf{EnthalpyNIST}, por consiguiente, existe la posibilidad de incorporar nuevos métodos a dichos programas. Los siguientes hipervínculos contienen por separado, los 3 repositorios de los programas creados en este trabajo.\\
+
+\begin{itemize}
+
+	\item \url{https://github.com/Edgargj/EnthalpyNIST}\\
+	\item \url{https://github.com/Edgargj/EnthalpyTajti}\\
+	\item \url{https://github.com/Edgargj/EnthalpyArgonne}\\
+
+\end{itemize}
+
+\newpage
+
+\section{EnthalpyNIST}
+
+\textbf{EnthalpyNIST} es un programa de cómputo científico que calcula entalpías de formación de átomos en estado gaseoso a  $T$ = 0 con correcciones térmicas para elementos en su estado estándar a $T$ = 298 K \cite{NIST1998,Nicolaides1996,McQuarrie1976}. \textbf{EnthalpyNIST} admite los siguientes métodos de \textbf{Gaussian}: G3, G3MP2, CBS-APNO, CBS-QB3 y G4. \cite{Simmie2015}.
+
+\section{EnthalpyTajti}
+
+\textbf{EnthalpyTajti} es un programa de cómputo científico que calcula entalpías de formación de átomos en estado gaseoso a  $T$ = 0, a excepción de los datos del átomo de Carbono, reportados por Tajti \textit{et al.} \cite{Tajti2004} con correcciones térmicas para elementos en su estado estándar a $T$ = 298 K \cite{NIST1998,Nicolaides1996,McQuarrie1976}. \textbf{EnthalpyTajti} admite los siguientes métodos de \textbf{Gaussian}: G3, G3MP2, CBS-APNO, CBS-QB3 y G4 \cite{Simmie2015}.
+
+\section{EnthalpyArgonne}
+
+\textbf{EnthalpyArgonne} es un programa de cómputo científico que determina entalpías de formación de átomos en estado gaseoso a $T$ = 0 con correcciones térmicas para elementos en su estado estándar a $T$ = 298 K \cite{Nicolaides1996,McQuarrie1976}. Por otra parte, utiliza tablas termoquímicas del Laboratorio Nacional de Argonne (ANL), no obstante, los valores del átomo de Azufre fueron tomados del Insituto Nacional de Estándares y Tecnología (NIST) \cite{NIST1998}. \textbf{EnthalpyArgonne }admite los siguientes métodos de \textbf{Gaussian}: G3, G3MP2, CBS-APNO, CBS-QB3 y G4 \cite{Simmie2015}.

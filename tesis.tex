@@ -1,0 +1,170 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,oneside]{book}
+% Usar draft para visualizar los ``badboxes''
+%\usepackage[Bjornstrup]{fncychap}
+\usepackage[Lenny]{fncychap}
+\usepackage{latexsym,amssymb,amsfonts}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{calligra}
+\usepackage{fourier}
+\usepackage{figlatex}
+\usepackage{wrapfig}
+\usepackage{lscape}
+\usepackage{float}
+\usepackage[labelfont=bf,font=small]{caption}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{cite}
+\usepackage[textwidth=16.1cm]{geometry}
+\usepackage{listings}
+\usepackage{array} 
+\usepackage{verbatim}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{algorithm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{chemmacros}
+\chemsetup{
+formula = chemformula,
+modules = thermodynamics,
+modules = reactions
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[spanish,es-tabla]{babel}
+\decimalpoint
+\usepackage{algorithmic}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{indentfirst}
+\usepackage[hidelinks]{hyperref}
+\usepackage[acronym]{glossaries}
+\lstset{language=C++%
+,basicstyle=\normalsize%
+,backgroundcolor=\color{yellow!10}%
+,breaklines=false%
+,keepspaces=true%
+,keywordstyle=\bfseries\color{blue}%
+,commentstyle=\itshape\color{green!40!black}%
+,identifierstyle=\color{black}%
+,stringstyle=\color{red!95!black}%
+,frame=%
+,deletekeywords={for, and, not, , std,}%
+,otherkeywords={=, $}%
+,numbers=left%
+,numberstyle=\tiny%
+,identifierstyle=\color{black}%
+,title=\lstname%
+}
+%\usepackage{pstricks}
+%\usepackage[fonts=true]{mpostinl}
+%\usepackage{hyperref}
+\geometry{letterpaper}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+%\setlength{\headheight}{45cm}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\lhead{}
+%\sc \fancyplain{} {Capítulo  \thechapter }}
+\chead{\sc \fancyplain{}{\leftmark}}
+\rhead{}
+%\lfoot{}
+%\cfoot{}
+%\rfoot{\thepage}
+%comment
+\renewcommand{\headrulewidth}{1.0pt}
+%\fancyheadoffset{\textwidth}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Algoritmic Spanish
+\floatname{algorithm}{Algoritmo}
+\renewcommand{\listalgorithmname}{Lista de algoritmos}
+\renewcommand{\algorithmicrequire}{\textbf{Entrada:}}
+\renewcommand{\algorithmicensure}{\textbf{Salida:}}
+\renewcommand{\algorithmicend}{\textbf{fin}}
+\renewcommand{\algorithmicif}{\textbf{si}}
+\renewcommand{\algorithmicthen}{\textbf{entonces}}
+\renewcommand{\algorithmicelse}{\textbf{si no}}
+\renewcommand{\algorithmicelsif}{\algorithmicelse,\ \algorithmicif}
+\renewcommand{\algorithmicendif}{\algorithmicend\ \algorithmicif}
+\renewcommand{\algorithmicfor}{\textbf{para}}
+\renewcommand{\algorithmicforall}{\textbf{para todo}}
+\renewcommand{\algorithmicdo}{\textbf{hacer}}
+\renewcommand{\algorithmicendfor}{\algorithmicend\ \algorithmicfor}
+\renewcommand{\algorithmicwhile}{\textbf{mientras}}
+\renewcommand{\algorithmicendwhile}{\algorithmicend\ \algorithmicwhile}
+\renewcommand{\algorithmicloop}{\textbf{repetir}}
+\renewcommand{\algorithmicendloop}{\algorithmicend\ \algorithmicloop}
+\renewcommand{\algorithmicrepeat}{\textbf{repetir}}
+\renewcommand{\algorithmicuntil}{\textbf{hasta que}}
+\renewcommand{\algorithmicprint}{\textbf{imprimir}} 
+\renewcommand{\algorithmicreturn}{\textbf{devolver}} 
+\renewcommand{\algorithmictrue}{\textbf{verdadero }} 
+\renewcommand{\algorithmicfalse}{\textbf{falso }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\geometry{left=3.0cm, right=2.5cm, top=3.0cm, bottom=2.5cm}
+%\geometry{landscape} % set up the page for landscape
+\renewcommand{\baselinestretch}{1.5}
+%\parskip=6mm
+%\parindent=10mm
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{15pt}
+%\setlength{\oddsidemargin}{-1.0cm}
+%\setlength{\evensidemargin}{0cm}
+%\setlength{\topmargin}{0.0cm}
+%\setlength{\textwidth}{16.6cm}
+%\setlength{\textheight}{22cm}
+\renewcommand{\contentsname}{Contenido}
+\renewcommand{\partname}{Parte}
+\renewcommand{\indexname}{Lista Alfabética}
+\renewcommand{\appendixname}{Apéndice}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\listfigurename}{Índice de figuras}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\listtablename}{Índice de tablas}
+\renewcommand{\chaptername}{Capítulo}
+\renewcommand{\bibname}{Referencias}
+\newtheorem{teo}{Teorema}
+\renewcommand{\lstlistingname}{Transcripción}
+%\renewcommand{\bottomfraction}{.1}
+%\renewcommand{\topfraction}{.9}
+%\renewcommand{\floatpagefraction}{.5}
+\frontmatter
+\input{chapters/portada.tex}
+\input{chapters/dedicatoria.tex}
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+\input{chapters/acronimo.tex}
+\newpage
+% EMPEZAMOS LOS CAPÍTULOS
+\mainmatter
+\input{chapters/introduccion.tex}
+%\include{../chobjetivos}
+\input{chapters/objetivo.tex}
+\input{chapters/antecedentes.tex}
+%\input{chapters/metodologia.tex}
+\input{chapters/resultados.tex}
+\input{chapters/conclusion.tex}
+% EMPIEZAN LOS APENDICES
+\appendix
+\input{appendix/apendice.tex}
+\backmatter
+% AQUÍ VA LA BIBLIOGRAFÍA
+\markright{Referencias}
+\addcontentsline{toc}{chapter}{Referencias}
+\renewcommand{\bibname}{Referencias}
+\bibliographystyle{bib/general.bst}
+\bibliography{bib/listado2.bib}
+%\bibliography{listado2.bib}
+%TERMINA DOCUMENTO
+\end{document}
+

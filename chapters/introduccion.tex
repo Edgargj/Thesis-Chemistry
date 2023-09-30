@@ -1,0 +1,94 @@
+\chapter{Introducción}
+
+Las computadoras son máquinas potentes que implementan funciones aritméticas
+en los circuitos electrónicos que contienen para posteriormente, configurarse y hacer cálculos 
+algebráicos. Este fue uno de los grandes logros de la comunidad científica en el siglo XX.
+Actualmente, el uso de la computadora en las ciencias es fundamental, al grado que el desarrollo
+del cómputo creó una nueva rama de la química, la \textbf{química computacional}.
+Adicionalmente, las sorprendentes evoluciones de las matemáticas, la física y la química teórica ha contribuido al florecimiento de la química computacional, al proveernos de conceptos, modelos
+teóricos, métodos numéricos y analíticos más eficientes que se han incorporado en algoritmos
+programables. Así, en nuestros días, es posible calcular geometrías moleculares, equilibrios de
+reacciones, espectros y otras propiedades físicas y químicas con las herramientas de esta nueva
+rama. 
+
+En la naturaleza y en el entorno científico, existen compuestos tan reactivos que no pueden
+aislarse, por lo que no pueden estudiarse mediante técnicas comunes de laboratorio. Sin embargo, este tipo de moléculas sí pueden estudiarse con métodos computacionales. Desde luego, no debe considerase a la química computacional como rival de las técnicas experimentales tradicionales, sino como aliada, ya que cuando se utilizan ambas, se logran resultados que serían imposibles de obtener si se utilizasen de forma excluyente. Podemos decir, entonces, que la química computacional es una disciplina que comprende los aspectos de la investigación en química que se benefician de la aplicación de las computadoras \cite{Cuevas2003}. 
+
+Las simulaciones efectuadas por computadoras tienen múltiples ventajas, entre ellas tenemos:
+\begin{enumerate}
+\item Son más económicas que los experimentos físicos.
+\item Pueden resolver un amplio margen de problemas, comparado con los que se podrían resolver con equipos de laboratorio específicos o de tecnología actual. 
+\end{enumerate}
+
+La química computacional puede dividirse en dos categorías, los métodos basados en la mecánica molecular y los métodos basados en la mecánica cuántica:
+\\Los métodos basados en la mecánica molecular (MM) se fundamentan en las leyes de la mecánica
+clásica, y consideran a los átomos como partículas puntuales dotadas de masa y carga, unidos
+entre sí por enlaces que pueden modelarse como resortes.
+
+Por otro lado, los métodos basados en la mecánica cuántica resuelven la ecuación de Schrödinger
+y utilizan la función de onda resultante
+para describir a los sistemas.
+En particular, con estos métodos se modela a las moléculas mediante un tratamiento directo
+de la estructura electrónica. Dicha estructura se puede abordar a través de métodos
+\textit{ab initio} (significa ``desde el principio'' y se refiere a que en
+este tipo de cálculos se usan sólo constantes fundamentales de la física y ningún dato experimental),
+o bien a través de métodos  \textit{semiempíricos} (emplea parámetros cuyos valores se ajustan con
+datos experimentales de cálculos \textit{ab initio}). Tanto los métodos \textit{ab initio} como los
+métodos \textit{semiempíricos} se enfocan en predecir las propiedades de los sistemas atómicos y
+moleculares. Existen dos factores importantes para elegir un método de cálculo adecuado: la naturaleza de la molécula y los parámetros conocidos de la molécula \cite{Cuevas2003}. 
+
+Dentro de las magnitudes más relevantes que pueden determinarse, con cierta facilidad, empleando
+cálculos de estructura electrónica se encuentran la entalpía de formación, la entropía
+y la energía de Gibbs. Estas propiedades se consideran relevantes porque brindan información acerca de la estabilidad y la reactividad molecular, además, a partir de ellas, es posible entender varios fenómenos que ocurren en los procesos químicos.
+
+Se denomina \textbf{entalpía de formación estándar} (representada como $\enthalpy*(f){}$) a la energía involucrada en la reacción química que relaciona la formación de 1 mol de un compuesto a partir de sus elementos en su forma más estable a $p$ = 1 bar y una temperatura dada.
+Una forma experimental común de determinar la $\enthalpy*(f){}$ consiste en quemar un compuesto dentro de una bomba calorimétrica y cuantificar el cambio de temperatura,
+con el fin de medir la cantidad de calor involucrado en esa reacción. Teóricamente, es posible obtener la entalpía de formación haciendo uso de tablas (existen extensas tablas de entalpías de formación determinadas experimentalmente  \cite{NIST1998, Tajti2004}). No obstante, también es posible cuantificar la entalpía de formación mediante cálculos \textit{ab initio}  \cite{Lewars2016}.
+Esta última opción es valiosa porque (1) es mucho más sencillo y económico que hacer un experimento termoquímico, (2) existen compuestos que no han sido medidos ni tabulados y (3) hay compuestos que son altamente reactivos, o compuestos de interés biológico que están disponibles sólo en pequeñas cantidades, por lo que no es posible someterlos a rígidos protocolos experimentales, \textit{v.gr.} reacciones de combustión  \cite{Lewars2016}.
+
+La precisión de un cálculo computacional, en particular en la energía, varía notablemente con el nivel de teoría y con el tipo de base utilizados para realizar el cálculo.
+Afortunadamente, existen metodologías que permiten conocer la energía con una precisión de
+hasta $\pm$ 1 $\mathrm{cal\cdot mol^{-1}}$, respecto a una determinación experimental. Estos métodos constan de secuencias
+de cálculos predefinidos y fueron desarrollados específicamente para lograr valores muy precisos
+con costos computacionales aceptables (véase p. ej. los métodos introducidos por Pople \textit{et al.}\cite{Cuevas2003}). Una categoría muy popular de estos métodos combinados es la que está
+conformada por las denominadas teorías \textit{Gaussian-n.}
+Éstas se usan para calcular energías en sistemas moleculares que contienen átomos desde
+el hidrógeno hasta el cloro, y su objetivo es desarrollar procedimientos generales,
+de amplia aplicabilidad para cualquier molécula, y ser capaces de reproducir valores
+termoquímicos experimentales con la precisión mencionada arriba.
+Algunos de esos métodos son: Gn (G1, G2, G3, G4).  Existen otras técnicas como CBS-N(CBS-APNO y CBS-QB3)  \cite{Simmie2015}, pero en este trabajo abordaremos exclusivamente los métodos G3 y G4 del \textit{software} \textbf{Gaussian09} \cite{g09}.
+
+El método G4 es un procedimiento que ha sido empleado frecuentemente en el cálculo de energías de enlace, entalpías de formación, potenciales de ionización
+y afinidades electrónicas  \cite{Cuevas2003, Tajti2004}. Una vez conocida la energía molecular, se puede calcular la entalpía de formación de la molécula
+en cuestión a  \textit{T} = 0. Para esto, se puede utilizar alguno de los tres enfoques más comunes:
+el método de atomización, el método de formación o  el método de reacción isodésmica.
+De los tres enfoques anteriores, el método de atomización da mejores resultados, especialmente
+para moléculas orgánicas, y es conceptualmente el más sencillo, ya que consiste en romper
+los enlaces de la molécula para obtener a sus átomos en fase gaseosa  \cite{Nicolaides1996}. Ahora bien, es común que las entalpías de formación estén tabuladas en condiciones normales de
+temperatura y presión, por lo que después de obtener las energías a \textit{T} = 0, es necesario calcularlas
+a \textit{T} = 298 K. Esto se puede hacer mediante la Termodinámica Estadística.
+
+En efecto, la Termodinámica Estadística permite obtener el valor de la energía interna
+de una molécula, a \textit{T} = 298 K, mediante la función de partición de un gas ideal. Dicha
+función resulta ser un producto de funciones de partición relacionadas con movimientos
+traslacionales, rotacionales y vibracionales  \cite{McQuarrie1976, Nicolaides1996}.
+Brevemente, el término traslacional contribuye con $\frac{3}{2}$ \textit{RT}, el término
+rotacional aporta $\frac{3}{2}$ \textit{RT} (aunque sólo \textit{RT} si la molécula es lineal) y el rotacional contribuye con \textit{RT} a la función de partición. Estas cantidades son el resultado de considerar a las moléculas como si
+fueran partículas libres en una caja para el movimiento traslacional, la aproximación del rotor
+rígido para el movimiento rotacional y el oscilador armónico para el movimiento vibracional\cite{Nicolaides1996}. Las contribuciones electrónica y nuclear son ignoradas (es decir, la función de partición correspondiente se establece en la unidad).
+Adicionalmente, pueden incorporarse correcciones más finas como la aproximación de Nicolaides \textit{et al.} \cite{McQuarrie1976}.
+
+El procedimiento descrito anteriormente suele ser bastante tedioso si se realiza manualmente,
+por lo que resulta indispensable contar con una herramienta que permita realizar
+las correcciones térmicas de manera automática. Dicha herramienta se materializa como resultado de este trabajo en un algoritmo de cómputo que determina la entalpía de formación de compuestos orgánicos
+a \textit{T} = 298 K, utilizando archivos de salida del \textit{software} \textit{Gaussian}, y de manera que
+se añadan a voluntad correcciones finas como las de Nicolaides.
+
+
+
+
+
+
+
+
+
